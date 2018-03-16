@@ -69,6 +69,7 @@ public class AlienController {
     		this.txtResult.setText("Traduzione inserita nel dizionario!");
     		this.txtWord.clear();
     	}
+    	
     	txtWord.clear();
     }
     
