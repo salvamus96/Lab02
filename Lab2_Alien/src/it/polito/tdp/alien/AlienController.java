@@ -74,8 +74,8 @@ public class AlienController {
     	}
     	
     	else {
-    			this.txtResult.setText("Inserire una traduzione per la parola !");
-    			return ;
+    		this.txtResult.setText("Inserire una traduzione per la parola !");
+    		return ;
     	}
     		
     	txtWord.clear();
