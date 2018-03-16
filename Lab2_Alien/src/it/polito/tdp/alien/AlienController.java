@@ -47,20 +47,28 @@ public class AlienController {
     void doTranslate(ActionEvent event) {
     	
     	String[] s =  txtWord.getText().toLowerCase().split(" ");
-//    	for (String str : s)
-//    		if (str.matches("[a-zA-Z]"))
-//    			System.out.println("Errore:");
+    	
+    	for (String str : s)
+    		if (str.matches("[a-zA-Z]*") == false) {
+    			this.txtResult.setText("Formato dati non ammesso!");
+    			return ;
+    		}
+            
     	if (s.length == 1) {
     		this.txtResult.clear();
     		String result = ad.translateWord(s[0]);
-//    		if (result == null)
-//        		this.txtResult.setText("Traduzione non presente!");
-
+    		if (result == null) {
+        		this.txtResult.setText("Traduzione non presente: inserire una traduzione!");
+        		return ;
+    		}
+    		
     		this.txtResult.setText(result);
     	}
-    	else if (s.length == 2)
+    	else if (s.length == 2) {
     		ad.addWord(s[0], s[1]); 
-    	
+    		this.txtResult.setText("Traduzione inserita nel dizionario!");
+    		this.txtWord.clear();
+    	}
     	txtWord.clear();
     }
     
