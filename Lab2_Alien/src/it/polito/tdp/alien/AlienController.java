@@ -45,10 +45,17 @@ public class AlienController {
     
     @FXML
     void doTranslate(ActionEvent event) {
-    	String[] s =  this.txtWord.getText().split(" ");
+    	
+    	String[] s =  txtWord.getText().toLowerCase().split(" ");
+//    	for (String str : s)
+//    		if (str.matches("[a-zA-Z]"))
+//    			System.out.println("Errore:");
     	if (s.length == 1) {
     		this.txtResult.clear();
     		String result = ad.translateWord(s[0]);
+//    		if (result == null)
+//        		this.txtResult.setText("Traduzione non presente!");
+
     		this.txtResult.setText(result);
     	}
     	else if (s.length == 2)
