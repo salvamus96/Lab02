@@ -50,7 +50,7 @@ public class AlienController {
     	
     	for (String str : s)
     		
-    		// UTILISSIMO PER IL FORMATO DATI
+    		// UTILISSIMO PER IL FORMATO DATI!!!!!!!!!!!!!
     		if (str.matches("[a-zA-Z]*") == false) {
     			this.txtResult.setText("Formato dati non ammesso!");
     			return ;
