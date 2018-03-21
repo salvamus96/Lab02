@@ -51,14 +51,22 @@ public class AlienController {
     	for (String str : s)
     		
     		// UTILISSIMO PER IL FORMATO DATI!!!
-    		if (str.matches("[a-zA-Z]*") == false) {
+    		if (str.matches("[a-zA-Z?]*") == false) {
     			this.txtResult.setText("Formato dati non ammesso!");
     			return ;
     		}
     
     	if (s.length == 1) {
     		this.txtResult.clear();
-    		String result = ad.translateWord(s[0].trim());
+    		
+    		String result;
+    		
+    		if (s[0].matches("[a-z?]*"))
+    			result = ad.translateWordWildCard(s[0].trim());
+    		
+    		else
+    			result = ad.translateWord(s[0].trim());
+    		
     		if (result == null) {
         		this.txtResult.setText("Traduzione non presente: inserire la parola nel dizionario!");
         		return;

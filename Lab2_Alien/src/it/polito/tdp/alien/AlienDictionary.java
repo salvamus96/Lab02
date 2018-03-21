@@ -22,7 +22,7 @@ public class AlienDictionary {
 	}
 
 
-
+	
 	public void addWord(String alienWord, String translation) {
 		WordEnhanced parola = new WordEnhanced (alienWord, translation);
 		for (WordEnhanced w : dictionary) 
@@ -40,7 +40,29 @@ public class AlienDictionary {
 		 }
 		 return null;
 	 }
+	 
 
+	 public String translateWordWildCard(String alienWildCard) {
 
+			// Utilizzo le regual expression di Java.
+			// Sostituisco il punto interrogativo con il punto.
+			// Il punto indica qualsiasi carattere (posso usare stringa.matches())
+			alienWildCard = alienWildCard.replaceAll("\\?", ".");
+
+			int matchCounter = 0;
+			StringBuilder sb = new StringBuilder();
+
+			for (WordEnhanced w : dictionary) {
+				if (w.compareWild(alienWildCard)) {
+					matchCounter++;
+					sb.append(w.elencoTraduzioni() + "\n");
+				}
+			}
+			
+			if (matchCounter != 0)
+				return sb.toString();
+			else
+				return null;
+		}
 }
 
