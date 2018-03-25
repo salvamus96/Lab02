@@ -16,7 +16,7 @@ public class WordEnhanced {
 		this.alienWord = alienWord;
 		this.translation = translation;
 		
-		this.translations = new LinkedList ();
+		this.translations = new LinkedList <>();
 		this.translations.add(translation);
 	}
 
